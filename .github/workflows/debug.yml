@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug
+      - name: Print GitHub Secrets and Variables
+        env:
+          EC2_HOST: ${{ secrets.ID_AWS }}
+          AWS_NAME: ${{ vars.AWS_NAME }}
         run: |
-          echo "EC2_HOST: ${{ secrets.ID_AWS }}"
-          echo "secrets ${{vars.AWS_NAME}}"
+          echo "EC2_HOST: $EC2_HOST"
+          echo "AWS_NAME: $AWS_NAME"
