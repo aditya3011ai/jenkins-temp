@@ -1,4 +1,4 @@
-name: 🔐 Test Secrets and Variables
+name: 🔐 Verify Secrets and Vars
 
 on:
   workflow_dispatch:
@@ -7,15 +7,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo secrets and vars using env
+      - name: Show values from env
         env:
           EC2_HOST: ${{ secrets.ID_AWS }}
           AWS_NAME: ${{ vars.AWS_NAME }}
+          AWS: ${{ secrets.AWS }}
         run: |
-          echo "EC2_HOST=$EC2_HOST"
-          echo "AWS_NAME=$AWS_NAME"
+          echo "✅ EC2_HOST = $EC2_HOST"
+          echo "✅ AWS_NAME = $AWS_NAME"
 
-      - name: Echo secrets and vars using expression
+      - name: Show values using expressions
         run: |
-          echo "EC2_HOST (expression): ${{ secrets.ID_AWS }}"
-          echo "AWS_NAME (expression): ${{ vars.AWS_NAME }}"
+          echo "🔒 EC2_HOST (expression): ${{ secrets.ID_AWS }}"
+          echo "🔒 AWS (expression): ${{ secrets.AWS }}"
+          echo "🌍 AWS_NAME (expression): ${{ vars.AWS_NAME }}"
