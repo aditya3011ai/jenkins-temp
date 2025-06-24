@@ -13,4 +13,4 @@ jobs:
       - name: Debug
         run: |
           echo "EC2_HOST: ${{ secrets.ID_AWS }}"
-          echo "secrets ${{secrets.AWS}}"
+          echo "secrets ${{vars.AWS_NAME}}"
