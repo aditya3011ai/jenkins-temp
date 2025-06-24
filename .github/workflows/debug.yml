@@ -15,6 +15,7 @@ jobs:
         run: |
           echo "✅ EC2_HOST = $EC2_HOST"
           echo "✅ AWS_NAME = $AWS_NAME"
+          echo "✅ AWS_NAME = $AWS"
 
       - name: Show values using expressions
         run: |
